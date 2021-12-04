@@ -1,3 +1,7 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -13,7 +17,7 @@
 #define spre cout<<fixed<<setprecision(1);
 typedef long long int ll;
 typedef long double ld;
-using namespace std;
+// using namespace std;
 // ll mod=67280421310721;
 // const ll mod=998244353;
 const ll mod=1e9+7;
