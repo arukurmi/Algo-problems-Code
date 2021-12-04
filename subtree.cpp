@@ -1,54 +1,37 @@
 #include<bits/stdc++.h> 
 using namespace std; 
 
-// Separator node 
 const char MARKER = '$'; 
+unordered_set<string> subtrees;
 
-// Structure for a binary tree node 
-struct Node 
-{ 
+struct Node { 
 	char key; 
 	Node *left, *right; 
 }; 
 
-// A utility function to create a new node 
-Node* newNode(char key) 
-{ 
+Node* newNode(char key) { 
 	Node* node = new Node; 
 	node->key = key; 
 	node->left = node->right = NULL; 
 	return node; 
 } 
 
-unordered_set<string> subtrees; 
-
-// This function returns empty string if tree 
-// contains a duplicate subtree of size 2 or more. 
-string dupSubUtil(Node *root) 
-{ 
+string dupSubUtil(Node *root){
 	string s = ""; 
 
-	// If current node is NULL, return marker 
 	if (root == NULL) 
 		return s + MARKER; 
 
-	// If left subtree has a duplicate subtree. 
 	string lStr = dupSubUtil(root->left); 
 	if (lStr.compare(s) == 0) 
 	return s; 
 
-	// Do same for right subtree 
 	string rStr = dupSubUtil(root->right); 
 	if (rStr.compare(s) == 0) 
 	return s; 
 
-	// Serialize current subtree 
 	s = s + root->key + lStr + rStr; 
 
-	// If current subtree already exists in hash 
-	// table. [Note that size of a serialized tree 
-	// with single node is 3 as it has two marker 
-	// nodes. 
 	if (s.length() > 3 && 
 		subtrees.find(s) != subtrees.end()) 
 	return ""; 
@@ -58,9 +41,7 @@ string dupSubUtil(Node *root)
 	return s; 
 } 
 
-// Driver program to test above functions 
-int main() 
-{ 
+int main() { 
 	Node *root = newNode('A'); 
 	root->left = newNode('B'); 
 	root->right = newNode('C'); 
@@ -72,7 +53,6 @@ int main()
 
 	string str = dupSubUtil(root); 
 
-	(str.compare("") == 0) ? cout << " Yes ": 
-							cout << " No " ; 
+	(str.compare("") == 0) ? cout << " Yes " : cout << " No " ; 
 	return 0; 
 } 
