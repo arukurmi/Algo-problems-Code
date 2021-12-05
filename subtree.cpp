@@ -3,19 +3,16 @@ using namespace std;
 
 const char MARKER = '$'; 
 unordered_set<string> subtrees;
-
 struct Node { 
 	char key; 
 	Node *left, *right; 
 }; 
-
 Node* newNode(char key) { 
 	Node* node = new Node; 
 	node->key = key; 
 	node->left = node->right = NULL; 
 	return node; 
 } 
-
 string dupSubUtil(Node *root){
 	string s = ""; 
 

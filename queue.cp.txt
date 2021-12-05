@@ -2,15 +2,7 @@
 using namespace std;
 #define ll long long
 
-
- // } Driver Code Ends
-
-
-// Function to print all binary numbers upto n
-
-vector<string> generate(long long N)
-{
-	// Your code here
+vector<string> generate(long long N){
 	
 	vector<string> binary;
 	for(int i=1; i<=N; i++){
@@ -25,15 +17,10 @@ vector<string> generate(long long N)
 	return binary;
 }
 
-
-// { Driver Code Starts.
-
-int main()
-{
+int main(){
 	int t;
 	cin>>t;
-	while(t--)
-	{
+	while(t--){
 		ll n;
 		cin>>n;
 		vector<string> ans = generate(n);
